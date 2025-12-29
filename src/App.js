@@ -453,6 +453,9 @@ function App() {
           <div id="output-text" className="output-text" role="region" aria-live="polite">
             {outputText || '(변환 결과가 여기에 표시됩니다)'}
           </div>
+          {outputText && (
+            <p className="output-hint">🎤 음성 녹음을 누르고 직접 발음해보세요!</p>
+          )}
         </section>
 
         {(recordedAudio || reversedAudio) && (
