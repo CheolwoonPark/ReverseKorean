@@ -76,7 +76,7 @@ function applyConsonantAssimilation(phonemes) {
     
     // 유성음화: 받침 뒤의 ㅎ → ㅇ
     if (isFinalConsonant(i) && next === 'ㅎ') {
-      result[i + 1] = 'ㅇ';
+      result[i + 1] = VOICING_MAP[next] || next;
     }
   }
   
