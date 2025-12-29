@@ -1,0 +1,21 @@
+{
+  "short_name": "역재생 발음 생성기",
+  "name": "한국어 역재생 발음 생성기",
+  "icons": [
+    {
+      "src": "reverse.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "reverse.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#ffffff"
+}
+

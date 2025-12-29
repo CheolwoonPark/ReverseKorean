@@ -90,6 +90,39 @@ npm run build
 
 빌드된 파일은 `build` 폴더에 생성됩니다.
 
+## SEO 설정
+
+이 프로젝트는 검색 엔진 최적화(SEO)가 적용되어 있습니다:
+
+### 포함된 SEO 기능
+- 메타 태그 최적화 (description, keywords, author 등)
+- Open Graph 태그 (소셜 미디어 공유 최적화)
+- Twitter Card 태그
+- 구조화된 데이터 (JSON-LD Schema.org)
+- robots.txt 파일
+- sitemap.xml 파일
+- 시맨틱 HTML 마크업
+- 반응형 디자인 (모바일 친화적)
+
+### 배포 전 설정 필요 사항
+
+1. **도메인 설정**
+   - `public/index.html`의 모든 `https://your-domain.com`을 실제 도메인으로 변경
+   - `public/robots.txt`의 사이트맵 URL 업데이트
+   - `public/sitemap.xml`의 URL 업데이트
+
+2. **구글 서치 콘솔**
+   - [Google Search Console](https://search.google.com/search-console)에 사이트 등록
+   - sitemap.xml 제출
+   - robots.txt 확인
+
+3. **소셜 미디어 설정** (선택)
+   - `public/index.html`의 Twitter 핸들(`@your-twitter-handle`) 설정
+
+4. **.htaccess 설정** (Apache 서버인 경우)
+   - `public/.htaccess` 파일의 HTTPS 리다이렉트 활성화
+   - 실제 도메인에 맞게 수정
+
 ## 라이선스 및 사용 규칙
 
 이 프로젝트는 개인 프로젝트이며, 다음 사용 규칙이 적용됩니다.

@@ -276,10 +276,10 @@ function App() {
 
   return (
     <div className="app">
-      <div className="header">
+      <header className="header" role="banner">
         <h1>한국어 역재생 발음 생성기</h1>
-        <p>한글 텍스트를 역재생 발음으로 변환하거나 음성을 녹음하여 역재생하세요</p>
-      </div>
+        <p>한글 텍스트를 역재생 발음으로 변환하거나 음성을 녹음하여 역재생하세요!</p>
+      </header>
       
       {/* 상단 광고 영역 */}
       <AdSense 
@@ -288,8 +288,8 @@ function App() {
         style={{ margin: '20px auto', maxWidth: '800px' }}
       />
       
-      <div className="container">
-        <div className="input-section">
+      <main className="container" role="main">
+        <section className="input-section" aria-label="텍스트 입력 섹션">
           <label htmlFor="text-input">한글 텍스트 입력</label>
           <input
             id="text-input"
@@ -304,7 +304,7 @@ function App() {
               }
             }}
           />
-        </div>
+        </section>
 
         <div className="button-group">
           <button className="btn btn-primary" onClick={handleConvert}>
@@ -332,12 +332,12 @@ function App() {
           style={{ margin: '30px 0' }}
         />
 
-        <div className="output-section">
+        <section className="output-section" aria-label="변환 결과 섹션">
           <label htmlFor="output-text">변환된 역재생 발음</label>
-          <div id="output-text" className="output-text">
+          <div id="output-text" className="output-text" role="region" aria-live="polite">
             {outputText || '(변환 결과가 여기에 표시됩니다)'}
           </div>
-        </div>
+        </section>
 
         {(recordedAudio || reversedAudio) && (
           <div className="audio-controls">
@@ -378,7 +378,7 @@ function App() {
             style={{ margin: '30px 0' }}
           />
         )}
-      </div>
+      </main>
       
       {/* 푸터 위 광고 영역 */}
       <AdSense 
