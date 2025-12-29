@@ -47,7 +47,7 @@
   border: 2px solid #e0e0e0;
   border-radius: 10px;
   transition: border-color 0.3s;
-  font-family: 'Malgun Gothic', sans-serif;
+  font-family: 'Pretendard', sans-serif;
 }
 
 .text-input:focus {
@@ -73,6 +73,7 @@
   cursor: pointer;
   transition: all 0.3s;
   color: white;
+  font-family: 'Pretendard', sans-serif;
 }
 
 .btn-primary {
@@ -127,7 +128,7 @@
   border-radius: 10px;
   background: #f9f9f9;
   min-height: 60px;
-  font-family: 'Malgun Gothic', sans-serif;
+  font-family: 'Pretendard', sans-serif;
   word-break: keep-all;
 }
 
