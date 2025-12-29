@@ -10,6 +10,7 @@ function App() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [recordedAudio, setRecordedAudio] = useState(null);
   const [reversedAudio, setReversedAudio] = useState(null);
+  const [showHelp, setShowHelp] = useState(false);
   
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
@@ -274,6 +275,28 @@ function App() {
     }
   }, [isRecording]);
 
+  // ESC 키로 모달 닫기 및 body 스크롤 제어
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && showHelp) {
+        setShowHelp(false);
+      }
+    };
+    
+    // 모달이 열릴 때 body 스크롤 방지
+    if (showHelp) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleEscape);
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [showHelp]);
+
   return (
     <div className="app">
       <header className="header" role="banner">
@@ -289,6 +312,99 @@ function App() {
       />
       
       <main className="container" role="main">
+        {/* 도움말 버튼 */}
+        <button 
+          className="help-button"
+          onClick={() => setShowHelp(true)}
+          aria-label="도움말 열기"
+        >
+          📖 사용 방법
+        </button>
+
+        {/* 모달 오버레이 */}
+        {showHelp && (
+          <div 
+            className="modal-overlay"
+            onClick={() => setShowHelp(false)}
+            aria-label="모달 닫기"
+          >
+            <div 
+              className="modal-content"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="modal-header">
+                <h2>📖 사용 방법</h2>
+                <button 
+                  className="modal-close"
+                  onClick={() => setShowHelp(false)}
+                  aria-label="닫기"
+                >
+                  ✕
+                </button>
+              </div>
+              
+              <div className="modal-body">
+              <div className="help-item">
+                  <h4>🎯 사용 팁</h4>
+                  <ul>
+                    <li>변환된 역재생 발음을 <strong>음성으로 녹음</strong>한 후, 그 녹음을 <strong>역재생</strong>으로 재생하면 원래의 한글 발음으로 들립니다!</li>
+                    <li>예: "안녕하세요" → "오예사흥어인나" (변환) → 녹음 → 역재생 → "안녕하세요" (원래 발음)</li>
+                    <li>이는 실제 발음의 시간축을 뒤집는 원리를 활용한 것입니다.</li>
+                  </ul>
+                </div>
+
+                <div className="help-item">
+                  <h4>1️⃣ 텍스트 변환</h4>
+                  <ul>
+                    <li>한글 텍스트를 입력 필드에 입력하세요.</li>
+                    <li>"변환하기" 버튼을 클릭하거나 Enter 키를 누르세요.</li>
+                    <li>변환된 역재생 발음이 출력 영역에 표시됩니다.</li>
+                  </ul>
+                </div>
+
+                <div className="help-item">
+                  <h4>2️⃣ 음성 녹음 및 역재생</h4>
+                  <ul>
+                    <li>"음성 녹음" 버튼을 클릭하여 녹음을 시작하세요.</li>
+                    <li>마이크 접근 권한이 필요합니다.</li>
+                    <li>원하는 음성을 녹음한 후 "녹음 중지" 버튼을 클릭하세요.</li>
+                    <li>원본 녹음과 역재생된 오디오를 재생할 수 있습니다.</li>
+                  </ul>
+                </div>
+
+                <div className="help-item">
+                  <h4>💡 변환 예시</h4>
+                  <ul>
+                    <li><strong>"안녕하세요"</strong> → <strong>"오예사흥어인나"</strong></li>
+                    <li><strong>"거꾸로"</strong> → <strong>"오루꺼그"</strong></li>
+                    <li><strong>"안돼"</strong> → <strong>"에엑따"</strong></li>
+                  </ul>
+                </div>
+
+                <div className="help-item">
+                  <h4>⚙️ 적용되는 음운 규칙</h4>
+                  <ul>
+                    <li><strong>초성 'ㅇ' 무시</strong>: 소리 없는 초성 'ㅇ'은 분해 시 제외</li>
+                    <li><strong>이중모음 분리</strong>: ㅑ→ㅣ+ㅏ, ㅕ→ㅣ+ㅓ, ㅛ→ㅣ+ㅗ 등</li>
+                    <li><strong>유성음화</strong>: 받침 뒤의 ㅎ이 유성음으로 변환</li>
+                    <li><strong>7종 종성 법칙</strong>: 모든 받침을 [ㄱ, ㄴ, ㄷ, ㄹ, ㅁ, ㅂ, ㅇ] 중 하나로 발음</li>
+                    <li><strong>자음 동화</strong>: 비음화, 유음화 등 음운 변동 규칙 적용</li>
+                  </ul>
+                </div>
+
+                <div className="help-item">
+                  <h4>⚠️ 주의사항</h4>
+                  <ul>
+                    <li>이 도구는 실제 발음의 시간축을 뒤집는 것을 구현합니다.</li>
+                    <li>단순히 문자를 뒤집는 것이 아닙니다.</li>
+                    <li>브라우저가 마이크 접근을 지원해야 합니다.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         <section className="input-section" aria-label="텍스트 입력 섹션">
           <label htmlFor="text-input">한글 텍스트 입력</label>
           <input

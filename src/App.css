@@ -253,3 +253,249 @@
   }
 }
 
+/* 도움말 버튼 스타일 */
+.help-button {
+  width: 100%;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  font-family: 'Pretendard', sans-serif;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.help-button:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.help-button:active {
+  transform: translateY(0);
+}
+
+/* 모달 오버레이 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 모달 컨텐츠 */
+.modal-content {
+  background: white;
+  border-radius: 20px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 30px;
+  border-bottom: 2px solid #e0e0e0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px 20px 0 0;
+  color: white;
+  flex-shrink: 0;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.modal-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 30px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.modal-body .help-item {
+  margin-bottom: 25px;
+}
+
+.modal-body .help-item h4 {
+  margin-bottom: 10px;
+  color: #667eea;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.modal-body .help-item ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.modal-body .help-item ul li {
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #555;
+  line-height: 1.6;
+}
+
+.modal-body .help-item ul li:before {
+  content: '•';
+  position: absolute;
+  left: 10px;
+  color: #667eea;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.modal-body .help-item ul li strong {
+  color: #333;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    max-width: 95%;
+    max-height: 95vh;
+  }
+
+  .modal-header {
+    padding: 20px;
+  }
+
+  .modal-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+
+  .modal-body .help-item h4 {
+    font-size: 1.1rem;
+  }
+}
+
+.help-content h3 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 10px;
+}
+
+.help-item {
+  margin-bottom: 25px;
+}
+
+.help-item h4 {
+  margin-bottom: 10px;
+  color: #667eea;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.help-item ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.help-item ul li {
+  padding: 8px 0;
+  padding-left: 25px;
+  position: relative;
+  color: #555;
+  line-height: 1.6;
+}
+
+.help-item ul li:before {
+  content: '•';
+  position: absolute;
+  left: 10px;
+  color: #667eea;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.help-item ul li strong {
+  color: #333;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .help-content {
+    padding: 20px 15px;
+  }
+
+  .help-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .help-item h4 {
+    font-size: 1.1rem;
+  }
+}
+
