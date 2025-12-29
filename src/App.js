@@ -348,7 +348,7 @@ function App() {
                   <h4>🎯 사용 팁</h4>
                   <ul>
                     <li>변환된 역재생 발음을 <strong>음성으로 녹음</strong>한 후, 그 녹음을 <strong>역재생</strong>으로 재생하면 원래의 한글 발음으로 들립니다!</li>
-                    <li>예: "안녕하세요" → "오예사흥어인나" (변환) → 녹음 → 역재생 → "안녕하세요" (원래 발음)</li>
+                    <li>예: "안녕하세요" → "오예상어인나" (변환) → 녹음 → 역재생 → "안녕하세요" (원래 발음)</li>
                     <li>이는 실제 발음의 시간축을 뒤집는 원리를 활용한 것입니다.</li>
                   </ul>
                 </div>
@@ -375,9 +375,9 @@ function App() {
                 <div className="help-item">
                   <h4>💡 변환 예시</h4>
                   <ul>
-                    <li><strong>"안녕하세요"</strong> → <strong>"오예사흥어인나"</strong></li>
-                    <li><strong>"거꾸로"</strong> → <strong>"오루꺼그"</strong></li>
-                    <li><strong>"안돼"</strong> → <strong>"에엑따"</strong></li>
+                    <li><strong>"안녕하세요"</strong> → <strong>"오예상어인나"</strong></li>
+                    <li><strong>"거꾸로"</strong> → <strong>"오룪억"</strong></li>
+                    <li><strong>"안돼"</strong> → <strong>"애옫나"</strong></li>
                   </ul>
                 </div>
 
